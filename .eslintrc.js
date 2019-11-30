@@ -20,8 +20,8 @@ module.exports = {
     },
   },
   extends: [
-    'airbnb-base',
     'plugin:react/recommended',
+    'airbnb-base',
   ],
   settings: {
     react: {
@@ -46,5 +46,8 @@ module.exports = {
     'no-console': 0,
     'max-len': ['warn', { code: 120 }],
     'operator-linebreak': ['error', 'after'],
+    'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
+    'consistent-return': 0,
+    'no-use-before-define': 0,
   },
 };

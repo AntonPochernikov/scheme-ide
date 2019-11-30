@@ -79,17 +79,17 @@ const listOfValues = (exps, env) => {
 };
 
 const expressionEvaluators = {
-  'quote': textOfQuotation,
-  'string': evalString,
+  quote: textOfQuotation,
+  string: evalString,
   'set!': evalAssignment,
-  'define': evalDefinition,
-  'if': evalIf,
-  'lambda': (exp, env) => makeProcedure(
+  define: evalDefinition,
+  if: evalIf,
+  lambda: (exp, env) => makeProcedure(
     lambdaParameters(exp),
     lambdaBody(exp),
     env,
   ),
-  'begin': (exp, env) => evalSequence(beginActions(exp), env),
+  begin: (exp, env) => evalSequence(beginActions(exp), env),
 };
 
 const getEvaluator = (exp) => {
@@ -115,6 +115,7 @@ export default function evaluate(exp, env) {
     // case (isCond(exp)): {
     //   return evalIf(condToIf(exp), env);
     // }
+    // eslint-disable-next-line no-fallthrough
     case (isApplication(exp)): {
       return apply(
         evaluate(operator(exp), env),
@@ -125,7 +126,7 @@ export default function evaluate(exp, env) {
       throw new Error(`Unknown expression type: EVAL. ${exp}`);
     }
   }
-};
+}
 
 function apply(f, args) {
   if (isPrimitive(f)) {
@@ -142,4 +143,4 @@ function apply(f, args) {
     );
   }
   throw new Error(`Unknown procedure type: APPLY. ${f}`);
-};
+}

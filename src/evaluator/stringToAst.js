@@ -296,6 +296,9 @@ export default function stringToAst(string) {
         }
         break;
       }
+      default: {
+        throw new Error('Wrong parser state');
+      }
     }
 
     symbols = symbols.slice(1);
@@ -306,4 +309,4 @@ export default function stringToAst(string) {
   }
 
   return parsed;
-};
+}

@@ -16,4 +16,4 @@ export default function setupEnvironment() {
   defineVariable('false', False, initialEnvironment);
   defineVariable('nil', theEmptyList, initialEnvironment);
   return initialEnvironment;
-};
+}

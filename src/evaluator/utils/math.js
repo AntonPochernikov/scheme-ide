@@ -16,7 +16,7 @@ export const sub = (...args) => {
     );
   }
   const [min, ...subs] = args;
-  return subs.reduce((a, b) => a - b, min)
+  return subs.reduce((a, b) => a - b, min);
 };
 
 export const mul = (...args) => {

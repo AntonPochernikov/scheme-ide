@@ -1,1 +1,1 @@
-export const isVariable = exp => (typeof exp === 'string' && isNaN(Number(exp)));
+export const isVariable = exp => typeof exp === 'string' && Number.isNaN(Number(exp));

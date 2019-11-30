@@ -346,7 +346,9 @@ module.exports = function(webpackEnv) {
           use: [
             {
               options: {
-                cache: true,
+                // Removed this options cause of strange file caching
+                // that won't trigger refresh.
+                // cache: true,
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,

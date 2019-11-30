@@ -1,5 +1,16 @@
-import { add, sub, mul, div } from '../utils/math';
-import { list, cons, car, cdr, isEmptyList } from '../objects/list';
+import {
+  add,
+  sub,
+  mul,
+  div,
+} from '../utils/math';
+import {
+  list,
+  cons,
+  car,
+  cdr,
+  isEmptyList,
+} from '../objects/list';
 import display from '../utils/display';
 import { isEqual } from '../utils/equals';
 

@@ -23,6 +23,9 @@ export const makeFrame = (variables, values) => reduce(
 );
 
 export const addBindingToFrame = (variable, value, frame) => {
+  // Don't have other way to do that correctly
+  // cause we actually need this frame to be the same one.
+  // eslint-disable-next-line no-param-reassign
   frame[variable] = value;
   return frame;
 };

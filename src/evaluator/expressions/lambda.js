@@ -1,5 +1,3 @@
-import { makeBegin } from './begin';
-
 export const isLambda = (exp) => {
   if (Array.isArray(exp) && exp[0] === 'lambda') {
     return true;
