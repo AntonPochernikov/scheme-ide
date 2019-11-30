@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback } from 'react';
+// import MonacoEditor from 'react-monaco-editor';
 
-function App() {
+const options = {
+  selectOnLineNumbers: true
+};
+
+export default function App() {
+  const [code, setCode] = useState('');
+
+  const editorDidMount = useCallback((editor, monaco) => {
+    console.log('editorDidMount', editor);
+    editor.focus();
+  }, []);
+
+  const onChange = useCallback((newValue, e) => {
+    console.log('onChange', newValue, e);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <main>
+        {/* <MonacoEditor
+          monaco={monaco}
+          width="800"
+          height="600"
+          language="scheme"
+          // theme="vs-dark"
+          value={code}
+          options={options}
+          onChange={setCode}
+          editorDidMount={editorDidMount}
+        /> */}
+      </main>
     </div>
   );
 }
-
-export default App;
