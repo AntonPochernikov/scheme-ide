@@ -20,8 +20,8 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb-base',
+    'plugin:react/recommended',
   ],
   settings: {
     react: {
@@ -37,14 +37,14 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 0,
+    'import/extensions': 0,
+    'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 'error',
     'class-methods-use-this': 0,
     'linebreak-style': 0,
     'line-break-style': 0,
-    'react/prop-types': 0,
     'no-console': 0,
     'max-len': ['warn', { code: 120 }],
-    'import/extensions': 0,
     'operator-linebreak': ['error', 'after'],
   },
 };
