@@ -1,28 +1,32 @@
 import React, { useState, useCallback } from 'react';
-// import MonacoEditor from 'react-monaco-editor';
+import MonacoEditor from 'react-monaco-editor';
+import { makeStyles } from '@material-ui/core/styles';
 
 const options = {
-  selectOnLineNumbers: true
+  selectOnLineNumbers: true,
 };
+
+const useStyles = makeStyles({
+  main: {
+
+  },
+});
 
 export default function App() {
   const [code, setCode] = useState('');
 
-  const editorDidMount = useCallback((editor, monaco) => {
+  const classes = useStyles();
+
+  const editorDidMount = useCallback((editor) => {
     console.log('editorDidMount', editor);
     editor.focus();
   }, []);
 
-  const onChange = useCallback((newValue, e) => {
-    console.log('onChange', newValue, e);
-  }, []);
-
   return (
-    <div>
-      <main>
-        {/* <MonacoEditor
-          monaco={monaco}
-          width="800"
+    <>
+      <main className={classes.main}>
+        <MonacoEditor
+          width="100%"
           height="600"
           language="scheme"
           // theme="vs-dark"
@@ -30,8 +34,8 @@ export default function App() {
           options={options}
           onChange={setCode}
           editorDidMount={editorDidMount}
-        /> */}
+        />
       </main>
-    </div>
+    </>
   );
 }
