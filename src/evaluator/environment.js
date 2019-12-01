@@ -1,4 +1,5 @@
 import reduce from './utils/reduce';
+import Void from './objects/void';
 
 export const theEmptyEnvironment = Symbol('EMPTY_ENVIRONMENT');
 
@@ -65,7 +66,7 @@ export const setVariableValue = (variable, value, env) => {
   const frame = firstFrame(env);
   if (Object.prototype.hasOwnProperty.call(frame, variable)) {
     frame[variable] = value;
-    return value;
+    return Void;
   }
   return setVariableValue(variable, value, enclosingEnvironment(env));
 };
@@ -74,5 +75,5 @@ export const setVariableValue = (variable, value, env) => {
 export const defineVariable = (variable, value, env) => {
   const frame = firstFrame(env);
   frame[variable] = value;
-  return value;
+  return Void;
 };
