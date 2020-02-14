@@ -57,7 +57,7 @@ export default function Wrapper() {
 
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
-  const [outputSize] = useState({ width: '60%', height: '100%' });
+  const outputSize = useMemo(() => ({ width: '60%', height: '100%' }));
 
   const editorRef = useRef(null);
   const enabledResize = useMemo(() => ({ right: true }), []);
@@ -76,9 +76,8 @@ export default function Wrapper() {
   const onResizeOutput = useCallback(debounce(adjustEditor), [editorRef]);
 
   const onRunCode = useCallback(() => {
-    console.log(code);
     try {
-      setOutput(run(code));
+      setOutput(run(code.replace(/\s\s+/g, ' ')));
     } catch (e) {
       setOutput(e.message);
     }

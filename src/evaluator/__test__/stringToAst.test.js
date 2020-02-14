@@ -22,6 +22,16 @@ describe('stringToAst', () => {
     ]);
   });
 
+  it('should parse primitive definitions', () => {
+    expect(stringToAst(`
+      (define x 12)  x
+    `)).toEqual([
+      'begin',
+      ['define', 'x', 12],
+      'x',
+    ]);
+  });
+
   it('should parse procedure definition', () => {
     expect(stringToAst(`
       (define square

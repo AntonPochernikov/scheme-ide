@@ -34,6 +34,7 @@ describe('run', () => {
     const result = run(`
       (define x 12)
       x
+
     `);
     expect(result).toBe(12);
   });
