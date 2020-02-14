@@ -77,7 +77,7 @@ export default function Wrapper() {
 
   const onRunCode = useCallback(() => {
     try {
-      setOutput(run(code.replace(/\s\s+/g, ' ')));
+      setOutput(run(code));
     } catch (e) {
       setOutput(e.message);
     }
