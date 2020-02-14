@@ -2,4 +2,4 @@
 
 Making Scheme Web IDE.
 
-https://antonpochernikov.github.io/osg/
+https://antonpochernikov.github.io/scheme-ide/
